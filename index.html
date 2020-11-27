@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LiveEditor</title>
+</head>
+<body>
+    <div class="editor">
+
+<textarea name="htmlcode" id="htmlcode" cols="30" rows="10">
+
+</textarea>
+
+<textarea name="csscode" id="csscode" cols="30" rows="10">
+
+</textarea>
+
+<textarea name="jscode" id="jscode" cols="30" rows="10">
+
+</textarea>
+<button onclick="runeditor()">Run</button>
+
+
+<iframe id="output" frameborder="0"></iframe>
+
+
+    </div>
+
+
+
+    <script>
+        function runeditor(){
+            let htmlcode= document.getElementById('htmlcode').value;
+            let csscode =   "<style>"+ document.getElementById('csscode').value+"</style>";
+            let jscode= document.getElementById('jscode').value;
+            document.getElementById('output').contentDocument.body.innerHTML= htmlcode+csscode;
+            document.getElementById('output').contentWindow.eval(jscode);
+
+        }
+    </script>
+
+</body>
+</html>
